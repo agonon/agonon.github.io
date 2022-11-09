@@ -8,7 +8,8 @@ table#tlayout {
 
 body {
 	background: white;
-	font-family: Georgia, serif;
+	font-family: Trebuchet MS, sans-serif; 
+/* Courier, monospace ou MS Courier New, monospace ou Liberation Sans, sans-serif ou Trebuchet MS, sans-serif*/
 	padding-bottom: 8px;
 	margin: 0;
 }
