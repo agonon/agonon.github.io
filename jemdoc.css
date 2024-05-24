@@ -1,3 +1,27 @@
+.research-topics-list {
+	list-style-type: none;
+	padding: 0;
+}
+
+.research-topics-list li {
+	margin-bottom: 20px;
+}
+
+.research-topics-list h2 {
+	font-size: 1.2em;
+	margin: 0;
+}
+
+.research-topics-list p {
+	margin: 5px 0 0 0;
+}
+
+.publication-list {
+	list-style-type: none;
+	padding: 0;
+}
+
+
 /* Default css file for jemdoc. */
 
 table#tlayout {
@@ -8,7 +32,7 @@ table#tlayout {
 
 body {
 	background: white;
-	font-family: Trebuchet MS, sans-serif; 
+	font-family: Trebuchet MS, sans-serif;
 /* Courier, monospace ou MS Courier New, monospace ou Liberation Sans, sans-serif ou Trebuchet MS, sans-serif*/
 	padding-bottom: 8px;
 	margin: 0;
@@ -57,7 +81,7 @@ pre, tt {
 }
 
 a, a > tt {
-	color: #224b8d;
+	color: blue;
 	text-decoration: none;
 }
 
@@ -66,13 +90,15 @@ a:hover {
 }
 
 #layout-menu a.current:link, #layout-menu a.current:visited {
-	color: #022b6d;
+	color: blue;
 	border-bottom: 1px gray solid;
 }
+
 #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-	color: #527bbd;
+	color: blue;
 	text-decoration: none;
 }
+
 #layout-menu a:hover {
 	text-decoration: none;
 }
@@ -366,3 +392,6 @@ table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
 }
+
+
+

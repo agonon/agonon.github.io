@@ -1,0 +1,55 @@
+<ul class="research-topics-list">
+    <li>
+      <p>
+        <strong>Generalization of modern neural networks:</strong>
+        [<a href="#paper3" style="color: #1e90ff;">3</a>, <a href="#paper5" style="color: #1e90ff;">5</a>]
+        <a href="#" onclick="toggleDetails('details3'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
+      </p>
+      <p id="details3" style="display: none;">
+        The so-called path-lifting and its norm, the path-norm, are promising theoretical tools that have emerged to analyze ReLU neural networks by taking into account their symmetries. These tools have already been used to derive generalization bounds, identifiability guarantees, and characterizations of properties of the training dynamics. In [<a href="#paper3" style="color: #1e90ff;">3</a>], we made these tools fully compatible with modern networks such as ResNets, VGGs, U-nets, ReLU MobileNets, Alexnet, and many more. We further derived a new generalization bound for these models based on the path-norm, that recovers or beats previous bounds of this type known in simpler settings. This led us to assess for the first time this type of bound on modern networks, identifying the gap between theory and practice and promising leads to bridge this gap. The paper [<a href="#paper5" style="color: #1e90ff;">5</a>] gives a complementary perspective on the use of these tools for generalization.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        <strong>Pruning invariant to rescaling symmetries:</strong>
+        [<a href="#paper5" style="color: #1e90ff;">5</a>]
+        <a href="#" onclick="toggleDetails('details4'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
+      </p>
+      <p id="details4" style="display: none;">
+        In [<a href="#paper5" style="color: #1e90ff;">5</a>], we further extended the path-lifting toolkit that we introduced in [<a href="#paper3" style="color: #1e90ff;">3</a>] for modern networks. The first contribution of [<a href="#paper5" style="color: #1e90ff;">5</a>] is to introduce a natural (rescaling-invariant) metric based on the path-lifting, and to show that it yields an upper bound on the distance between two realizations of a network. The second contribution of [<a href="#paper4" style="color: #1e90ff;">5</a>] is to shed the light on theoretical and practical consequences of this new property. In particular, we provide a new pruning algorithm that is invariant under symmetries and that matches the accuracy of the standard magnitude pruning method when applied to ResNets trained on Imagenet in the lottery ticket context. The emerging theory of the path-lifting provides a promising foundation for future theoretical analysis of this pruning method.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        <strong>Fast inference on GPU using structured sparsity:</strong>
+        [<a href="#paper4" style="color: #1e90ff;">4</a>]
+        <a href="#" onclick="toggleDetails('details5'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
+      </p>
+      <p id="details5" style="display: none;">
+        Butterfly matrices, with their theoretically efficient matrix-vector multiplication, show promise in reducing resource demands for training and inference. However, their current practical benefit remains unclear due to a lack of reported numerical results. In [<a href="#paper5" style="color: #1e90ff;">4</a>], we extensively benchmark existing baseline implementations and find out that they spend up to 50% of their time on memory operations. We show that these memory operations can be optimized by introducing a new CUDA kernel that minimizes the transfers between the different levels of GPU memory, achieving a median speed-up factor of 1.4 while also reducing energy consumption (median of 0.85). We also demonstrate the broader significance of our results by showing how the new kernel can speed up the inference of neural networks such as vision transformers.
+      </p>
+    </li>
+
+      <li>
+        <p>
+          <strong>Privacy of sparse neural networks:</strong>
+          [<a href="#paper2" style="color: #1e90ff;">2</a>]
+          <a href="#" onclick="toggleDetails('details2'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
+        </p>
+        <p id="details2" style="display: none;">
+          There is currently no consensus on whether or not training sparse neural networks improves the privacy of the training dataset. Our empirical results in [<a href="#paper2" style="color: #1e90ff;">2</a>] show that there is not only a correlation between the network sparsity and privacy, but also with the network accuracy. We conclude that experiments investigating this conjecture must carefully consider the correlation with accuracy, a factor that has unfortunately been overlooked in previous studies that we revisited.
+        </p>
+      </li>
+      <li>
+            <p>
+              <strong>Approximation properties of ReLU neural networks:</strong>
+              [<a href="#paper1" style="color: #1e90ff;">1</a>]
+              <a href="#" onclick="toggleDetails('details1'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
+            </p>
+            <p id="details1" style="display: none;">
+              While the universal approximation theorem states that neural networks with arbitrary real weights can theoretically approximate any sufficiently smooth function, practical networks operate with specific floating-point constrained weights. In [<a href="#paper1" style="color: #1e90ff;">1</a>], we identify concrete bit-precision conditions under which floating-point constrained ReLU networks maintain the same approximation polynomial speeds as those with real weights.
+            </p>
+          </li>
+  </ul>
