@@ -28,13 +28,13 @@
         <a href="#" onclick="toggleDetails('details5'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
       </p>
       <p id="details5" style="display: none;">
-        In this project, we accelerate the inference of neural networks using sparse butterfly matrices.<br/><br/>
-        <em>Why butterfly matrices?</em><br/>
-        1) Neural networks with butterfly matrices have been empirically found to match the accuracy of standard networks in various settings.<br/>
-        2) Butterfly matrices are very expressive and quite ubiquitous in signal processing, for instance they appear in the Discrete Fourier and Hadamard transforms.<br/>
-        3) Butterfly matrices have a sparsity that is structured (the support is defined with Kronecker products, the number of nonzero coefficients is the same in every row/column etc.) which helps a lot to achieve efficient implementations.<br/>
-        4) Butterfly matrices have a sub-quadratic (even quasi-linear) theoretical matrix-vector multiplication complexity.<br/><br/>
-        Matrix multiplication is at the heart of the inference and training of neural networks. Because of that, butterfly matrices show promise to reduce the resource demands of neural networks. However, their current practical benefit (timewise and energywise) remains unclear due to a lack of reported numerical results. In [<a href="#paper5" style="color: #1e90ff;">4</a>], we extensively benchmark existing baseline implementations and find out that they spend up to 50% of their time on memory operations. We show that these memory operations can be optimized by introducing a new CUDA kernel that minimizes the transfers between the different levels of GPU memory, achieving a median speed-up factor of 1.4 while also reducing energy consumption (median of 0.85). We also concretely demonstrate how the new kernel can speed up the inference of neural networks.
+        In this project, we accelerate the inference of neural networks using matrices with sparse Kronecker constraints.<br/><br/>
+        <em>Why sparse Kronecker matrices?</em><br/>
+        1) Neural networks with sparse Kronecker matrices have been empirically found to match the accuracy of standard networks in various settings.<br/>
+        2) Sparse Kronecker matrices are very expressive and quite ubiquitous in signal processing, for instance they appear in the Discrete Fourier and Hadamard transforms.<br/>
+        3) Sparse Kronecker matrices have structured support (described by Kronecker products) which helps a lot to achieve efficient implementations.<br/>
+        4) Sparse Kronecker matrices have a sub-quadratic theoretical matrix-vector multiplication complexity.<br/><br/>
+        Matrix multiplication is at the heart of the inference and training of neural networks. Because of that, sparse Kronecker matrices show promise to reduce the resource demands of neural networks. However, their current practical benefit (timewise and energywise) remains unclear due to a lack of reported numerical results. In [<a href="#paper5" style="color: #1e90ff;">4</a>], we extensively benchmark existing baseline implementations and find out that they spend up to 50% of their time on memory operations. We show that these memory operations can be optimized by introducing a new CUDA kernel that minimizes the transfers between the different levels of GPU memory, achieving a median speed-up factor of 1.4 while also reducing energy consumption (median of 0.85). We also concretely demonstrate how the new kernel can speed up the inference of neural networks.
       </p>
 
     </li>
