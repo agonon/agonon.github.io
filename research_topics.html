@@ -1,62 +1,275 @@
 <ul class="research-topics-list">
-    <li>
+  <li>
+    <h3 style="display: inline; margin-right: 10px;">
+      &#x2696; Rescaling-Symmetries <span style="color:violet;">in</span> ReLU Neural Networks, <span style="color:violet">and their</span> Analysis <span style="color:violet">via the</span> Path-Lifting &#x2696;
+    </h3>
+    <a href="#" onclick="toggleDetails('details7'); return false;" style="color: #20c997; font-size: 0.9em;">
+      [Click to Expand]
+    </a>
+    <div id="details7" style="display: none; margin-top: 10px; margin-left: 15px">
+        <strong>Papers:</strong> 
+        [<a href="#paper3" style="color: #1e90ff;">3</a>, 
+        <a href="#paper5" style="color: #1e90ff;">5</a>]
+      </p>
       <p>
-        <strong>Generalization of modern neural networks:</strong>
-        [<a href="#paper3" style="color: #1e90ff;">3</a>, <a href="#paper5" style="color: #1e90ff;">5</a>]
-        <a href="#" onclick="toggleDetails('details3'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
+        ReLU neural networks, including architectures like ResNets and AlphaGo, exhibit important symmetries where different weights can implement the same input-output mapping.
       </p>
-      <p id="details3" style="display: none;">
-        The so-called path-lifting and its norm, the path-norm, are promising theoretical tools that have emerged to analyze ReLU neural networks by taking into account their symmetries. These tools have already been used to derive generalization bounds, identifiability guarantees, and characterizations of properties of the training dynamics. In [<a href="#paper3" style="color: #1e90ff;">3</a>], we made these tools fully compatible with modern networks such as ResNets, VGGs, U-nets, ReLU MobileNets, Alexnet, and many more. We further derived a new generalization bound for these models based on the path-norm, that recovers or improves on all the previous bounds of this type. Since this is the first bound of this type that is valid for modern networks, we could assess it on ResNets trained on ImageNet and identify the gap with practice, as well as promising leads to bridge this gap  [<a href="#paper3" style="color: #1e90ff;">3</a>]. The paper [<a href="#paper5" style="color: #1e90ff;">5</a>] gives a complementary perspective on the use of the path-lifting related tools for generalization. Just to give you a teaser, an easy consequence of the main result (Theorem 3.1) of [<a href="#paper5" style="color: #1e90ff;">5</a>] is that if you have two weight vectors of your network that have the same signs and the same path-lifting vectors, then they must correspond to the same input-output mapping. This results tells you that the path-lifting characterizes the network function up to the sign of the weights, while having more desirable properties that the weights themselves (e.g. being inherently invariant to rescaling symmetries).
+      <p>
+        Among these symmetries, <strong>rescaling</strong> ones are particularly significant because:
       </p>
-    </li>
+        <ul>
+          <li>they create <strong>continuous surfaces</strong> of local minima, unlike discrete permutation symmetries,</li>
+          <li>and they modify the <strong>size of the weights</strong>, unlike (again) permutation symmetries.</li>
+        </ul>
+      <p>
+        For instance, a single ReLU neuron with weights \(u\) and \(v\) implements \(f(x) = v \max(0, u \cdot x)\). Rescaling these weights by a positive scalar \(\lambda\) leaves \(f(x)\) unchanged:
+      </p>
+      
+      <div style="flex: 1; display: flex; justify-content: center; align-items: center; height: calc(5em + 5vh); max-width: 100%;">
+        <img src="materials/images/rescaling_symmetry_simple_ex.png" alt="ReLU neuron symmetry" 
+              style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+        <p class="caption" style="font-size: 0.85em; color: #555; text-align: center; margin-top: 10px;">
+          Illustration of rescaling symmetry in a single ReLU neuron.
+        </p>
+      </div>
+      <p>
+        These symmetries affect weight scales without modifying the function. Consequently, theoretical guarantees on functions, such as theoretical bounds, should account for these symmetries to avoid being aritrarily pessimistic when weights are rescaled.
+      </p>
+      <p>
+        One approach to achieve invariant guarantees is to work with invariant representations of the weights. For the simple example above, the product \(vu\) serves as a basic invariant:
+      </p>
+      <div style="flex: 1; display: flex; justify-content: center; align-items: center; height: calc(10em + 5vh); max-width: 100%;">
+        <img src="materials/images/curve_invariant_simple_ex.png" alt="ReLU neuron symmetry" 
+            style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+        <p class="caption" style="font-size: 0.85em; color: #555; text-align: center; margin-top: 10px;">
+          Invariant representation using the product \(vu\).         
+        </p>
+      </div>
+      <p>
+        The <strong>path-lifting</strong> generalizes this idea to more complex networks, regrouping similar invariants into a single vector. Moreover, this vector is closely tied to the function implemented by the network, which is great for theoretical analysis.
+      </p>
+      <p>
+        Before my work, the path-lifting was defined for multi-layer perceptrons. While this is already very useful, it could not handle skip connections, max-pooling, and even sometimes biases, or multi-dimensional outputs. In [<a href="#paper3" style="color: #1e90ff;">3</a>], I extended path-lifting and its related tools to modern networks such as ResNets, VGGs, U-Nets, ReLU MobileNets, AlexNet, AlphaGo, and more.
+      </p>
+      <p>
+        I used these extended tools in [<a href="#paper3" style="color: #1e90ff;">3</a>, 
+        <a href="#paper5" style="color: #1e90ff;">5</a>] to derive statistical properties and other insights for such modern networks.
+      </p>
+    </div>
+  </li>
 
-    <li>
+  <li>
+    <h3 style="display: inline; margin-right: 10px;">
+      &#x1F4CF;	Lipschitzness Invariant <span style="color:violet">to</span> Rescaling-Symmetries &#x1F4CF;
+    </h3>
+    <a href="#" onclick="toggleDetails('details5'); return false;" style="color: #20c997; font-size: 0.9em;">
+      [Click to Expand]
+    </a>
+    <div id="details5" style="display: none; margin-top: 10px; margin-left: 15px">
       <p>
-        <strong>Pruning invariant to rescaling symmetries:</strong>
+        <strong>Papers:</strong> 
+        [<a href="#paper3" style="color: #1e90ff;">3</a>, 
+        <a href="#paper5" style="color: #1e90ff;">5</a>]
+      </p>
+      <p>
+        I studied two types of Lipschitzness in neural networks: Lipschitzness with respect to the <em>inputs</em> and Lipschitzness with respect to the <em>weights</em>.
+      </p>
+      <p>
+        Lipschitzness with respect to the <em>inputs</em> is a critical property, especially for ensuring robustness to adversarial attacks. 
+        In [<a href="#paper3" style="color: #1e90ff;">3</a>], I extended an existing Lipschitz bound (previously defined for ReLU multi-layer perceptrons with scalar outputs) to modern architectures, including ResNets. 
+        This bound is based on the <strong>path-norm</strong> and offers several advantages:
+      </p>
+      <ul>
+        <li>improves over naive Lipschitz bounds (products of layers' norms),</li>
+        <li>is computationally efficient,</li>
+        <li>is invariant to rescaling-symmetries.</li>
+      </ul>
+      <p>
+        Lipschitzness with respect to the <em>weights</em> is also important for various properties, including generalization or robustness to quantization. 
+        In [<a href="#paper5" style="color: #1e90ff;">5</a>], I derived a novel Lipschitz bound in the weights based on the <strong>path-lifting vector</strong>.
+      </p>
+    </div>
+  </li>
+  
+  <li>
+    <h3 style="display: inline; margin-right: 10px;">
+      <!-- &#x1F3B0;
+      &#x1F3B2;	 -->
+      &#x1F52E;	Generalization <span style="color:violet">of</span> Modern Neural Networks &#x1F52E;	
+    </h3>
+    <a href="#" onclick="toggleDetails('details6'); return false;" style="color: #20c997; font-size: 0.9em;">
+      [Click to Expand]
+    </a>
+    <div id="details6" style="display: none; margin-top: 10px; margin-left: 15px">
+      <p>
+        <strong>Papers:</strong> 
+        [<a href="#paper3" style="color: #1e90ff;">3</a>, 
+        <a href="#paper5" style="color: #1e90ff;">5</a>]
+      </p>
+      <p>
+        Generalization addresses the statistical question of whether a neural network can maintain its performance on new, unseen data as it does on the training data. 
+        Understanding the properties of neural networks related to generalization is key to interpreting their behavior and leveraging this knowledge to design better models.
+      </p>
+  
+      <p>
+        One complexity measure that has received significant attention in the literature is the <span class="tooltip">path-norm<span class="tooltip-text">The norm of the path-lifting, another representation of the weights designed to absorb rescaling-symmetries.</span></span>. 
+        Its popularity stems from several advantages.
+      </p>
+      <ul>
+        <li>It is invariant to rescaling-symmetries.</li>
+        <li>It is computationally efficient.</li>
+        <li>It serves as a tighter Lipschitz bound on the network function compared to naive products of layer norms.</li>
+        <li>It correlates positively with generalization error.</li>
+      </ul>
+  
+      <p>
+        Motivated by these properties, I focused on improving and extending generalization bounds based on the path-norm. 
+        In [<a href="#paper3" style="color: #1e90ff;">3</a>], I derived a novel generalization bound for modern networks that recovers or improves upon all prior bounds of this type. 
+        Notably, it is the first such bound valid for networks such as ResNets, enabling the first empirical assessment of this type of guarantees on ResNets trained on ImageNet.
+      </p>
+    </div>
+  </li>
+
+  <li>
+    <h3 style="display: inline; margin-right: 10px;">
+      &#x2702;	Pruning Invariant <span style="color:violet">to</span> Rescaling-Symmetries &#x2702;
+    </h3>
+    <a href="#" onclick="toggleDetails('details4'); return false;" style="color: #20c997; font-size: 0.9em;">
+      [Click to Expand]
+    </a>
+    <div id="details4" style="display: none; margin-top: 10px; margin-left: 15px">
+      <p>
+        <strong>Papers:</strong> 
         [<a href="#paper5" style="color: #1e90ff;">5</a>]
-        <a href="#" onclick="toggleDetails('details4'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
       </p>
-      <p id="details4" style="display: none;">
-        In [<a href="#paper5" style="color: #1e90ff;">5</a>], we further extended the path-lifting toolkit that we introduced in [<a href="#paper3" style="color: #1e90ff;">3</a>] for modern networks. The first contribution of [<a href="#paper5" style="color: #1e90ff;">5</a>] is to introduce a natural (rescaling-invariant) metric based on the path-lifting, and to show that it yields an upper bound on the distance between two realizations of a network. The second contribution of [<a href="#paper4" style="color: #1e90ff;">5</a>] is to shed the light on theoretical and practical consequences of this new property. In particular, we provide a new pruning algorithm that is invariant under symmetries and that matches the accuracy of the standard magnitude pruning method when applied to ResNets trained on Imagenet in the lottery ticket context. The emerging theory of the path-lifting provides a promising foundation for future theoretical analysis of this pruning method.
-      </p>
-    </li>
-
-    <li>
       <p>
-        <strong>Fast inference on GPU using structured sparsity:</strong>
+        Pruning involves setting some neural network weights to zero, reducing the number of parameters and potentially improving computational efficiency. 
+        A common approach is <strong>magnitude pruning</strong>, where weights with the smallest absolute values are pruned, with the belief that these weights are less critical for the network's performance.
+      </p>
+  
+      <p>
+        However, magnitude pruning is <strong>not robust to rescaling-symmetries</strong>. Rescaling symmetries mean that different scalings of the weights can still implement the same function. 
+        As demonstrated in the following experiment, magnitude pruning can yield drastically different results depending on the rescaling-equivalent set of weights it is applied to.
+      </p>
+
+      <div style="flex: 1; display: flex; justify-content: center; align-items: center; height: calc(10em + 5vh); max-width: 100%;">
+        <img src="materials/images/plot_training_curves_test_only_mp0.4.pdf" alt="ReLU neuron symmetry" 
+              style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+        <p class="caption" style="font-size: 0.85em; color: #555; text-align: center; margin-top: 10px;">
+          We prune by magnitude a pre-trained ResNet18 on ImageNet, rewind the weights to their initial values after a few epochs, and retrain. The performance varies significantly depending on whether the weights of the pre-trained ResNet were rescaled before pruning or not.
+        </p>
+      </div>  
+      <p>
+        In [<a href="#paper5" style="color: #1e90ff;">5</a>], I introduced a novel pruning algorithm that is <strong>invariant to rescaling-symmetries</strong>. 
+        This algorithm is theoretically supported by a new Lipschitz bound based on the <strong>path-lifting</strong>.
+      </p>
+      <p>
+        As a proof-of-concept, the algorithm matches the accuracy of standard magnitude pruning in the above experiment, while maintaining robustness to rescaling-symmetries.
+      </p>
+    </div>
+  </li>
+
+
+  <li>
+    <h3 style="display: inline; margin-right: 10px;">
+      <!-- &#x1F50B;	 -->
+      &#x23F3; Fast Inference <span style="color:violet">on</span> GPU <span style="color:violet">using</span> Structured Sparsity &#x23F3;
+    </h3>
+    <a href="#" onclick="toggleDetails('details3'); return false;" style="color: #20c997; font-size: 0.9em;">
+      [Click to Expand]
+    </a>
+    <div id="details3" style="display: none; margin-top: 10px; margin-left: 15px">
+      <p>
+        <strong>Papers:</strong> 
         [<a href="#paper4" style="color: #1e90ff;">4</a>]
-        <a href="#" onclick="toggleDetails('details5'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
       </p>
-      <p id="details5" style="display: none;">
-        In this project, we accelerate the inference of neural networks using matrices with sparse Kronecker constraints.<br/><br/>
-        <em>Why Kronecker-sparse matrices?</em><br/>
-        1) Neural networks with Kronecker-sparse matrices have been empirically found to match the accuracy of standard networks in various settings.<br/>
-        2) Kronecker-sparse matrices are very expressive and quite ubiquitous in signal processing, for instance they appear in the Discrete Fourier and Hadamard transforms.<br/>
-        3) Kronecker-sparse matrices have structured support (described by Kronecker products) which helps a lot to achieve efficient implementations.<br/>
-        4) Kronecker-sparse matrices have a sub-quadratic theoretical matrix-vector multiplication complexity.<br/><br/>
-        Matrix multiplication is at the heart of the inference and training of neural networks. Because of that, Kronecker-sparse matrices show promise to reduce the resource demands of neural networks. However, their current practical benefit (timewise and energywise) remains unclear due to a lack of reported numerical results. In [<a href="#paper5" style="color: #1e90ff;">4</a>], we extensively benchmark existing baseline implementations and find out that they spend up to 50% of their time on memory operations. We show that these memory operations can be optimized by introducing a new CUDA kernel that minimizes the transfers between the different levels of GPU memory, achieving a median speed-up factor of 1.4 while also reducing energy consumption (median of 0.85). We also concretely demonstrate how the new kernel can speed up the inference of neural networks.
+      <p>
+        This project focuses on accelerating neural network inference using matrices with <strong>sparse Kronecker constraints</strong>. These matrices offer several advantages.
+      </p>
+      <ol>
+        <li>
+          Neural networks with Kronecker-sparse matrices can <strong>match the accuracy</strong> of standard networks in various settings.
+        </li>
+        <li>
+          Kronecker-sparse matrices are highly <strong>expressive</strong> and widely used in signal processing (e.g., in the Discrete Fourier and Hadamard transforms).
+        </li>
+        <li>
+          They possess a <strong>structured support</strong> (defined by Kronecker products), facilitating efficient implementations.
+        </li>
+        <li>
+          They have a <strong>sub-quadratic matrix-vector multiplication complexity</strong>.
+        </li>
+      </ol>
+  
+      <p>
+        Since matrix multiplication is central to neural network inference and training, Kronecker-sparse matrices have the potential to significantly reduce resource demands. 
+        However, their <strong>practical benefits</strong> (in terms of time and energy efficiency) have remained unclear due to a lack of reported numerical results.
+      </p>
+  
+      <p>
+        In [<a href="#paper4" style="color: #1e90ff;">4</a>], we extensively benchmarked existing baseline implementations. Our findings revealed that up to <strong>50% of computation time</strong> is spent on memory operations. To address this bottleneck, we introduced a novel <strong>CUDA kernel</strong> that minimizes data transfers between GPU memory levels.
       </p>
 
-    </li>
+      <p>
+        We concretely demonstrate on Transformers how Kronecker-sparse matrices can speed up neural network inference while also being energy-efficient. Our work establishes a foundation for future optimizations and applications of structured sparsity in deep learning.
+      </p>
+    </div>
+  </li>
+  
+  <li>
+    <h3 style="display: inline; margin-right: 10px;">
+      &#x1F512;	Privacy <span style="color:violet">of</span> Sparse Neural Networks &#x1F512;
+    </h3>
+    <a href="#" onclick="toggleDetails('details2'); return false;" style="color: #20c997; font-size: 0.9em;">
+      [Click to Expand]
+    </a>
+    <div id="details2" style="display: none; margin-top: 10px; margin-left: 15px">
+      <p>
+        <strong>Papers:</strong> 
+        [<a href="#paper2" style="color: #1e90ff;">2</a>]
+      </p>
+      <p>
+        The impact of network sparsity on privacy is an open question. Specifically, there is no consensus on whether training sparse neural networks enhances the privacy of the training dataset.
+      </p>
+      <p>
+        Our empirical findings in [<a href="#paper2" style="color: #1e90ff;">2</a>] indicate the following.
+      </p>
+      <ol>
+        <li>
+          There is a correlation between the <strong>network sparsity</strong> and <strong>privacy</strong>.
+        </li>
+        <li>
+          There is also a correlation between sparsity and <strong>network accuracy</strong>.
+        </li>
+      </ol>
+      <p>
+        These results suggest that studies exploring the privacy implications of sparse neural networks must carefully account for their correlation with accuracy. 
+        Unfortunately, many prior studies overlooked this factor, potentially leading to incomplete conclusions.
+      </p>
+    </div>
+  </li>
 
-      <li>
-        <p>
-          <strong>Privacy of sparse neural networks:</strong>
-          [<a href="#paper2" style="color: #1e90ff;">2</a>]
-          <a href="#" onclick="toggleDetails('details2'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
-        </p>
-        <p id="details2" style="display: none;">
-          There is currently no consensus on whether or not training sparse neural networks improves the privacy of the training dataset. Our empirical results in [<a href="#paper2" style="color: #1e90ff;">2</a>] show that there is not only a correlation between the network sparsity and privacy, but also with the network accuracy. We conclude that experiments investigating this conjecture must carefully consider the correlation with accuracy, a factor that has unfortunately been overlooked in previous studies that we revisited.
-        </p>
-      </li>
-      <li>
-            <p>
-              <strong>Approximation properties of ReLU neural networks:</strong>
-              [<a href="#paper1" style="color: #1e90ff;">1</a>]
-              <a href="#" onclick="toggleDetails('details1'); return false;" style="color: #20c997;">Click to unroll a quick description</a>
-            </p>
-            <p id="details1" style="display: none;">
-              While the universal approximation theorem states that neural networks with arbitrary real weights can theoretically approximate any sufficiently smooth function, practical networks operate with specific floating-point constrained weights. In [<a href="#paper1" style="color: #1e90ff;">1</a>], we identify concrete bit-precision conditions under which floating-point constrained ReLU networks maintain the same approximation polynomial speeds as those with real weights.
-            </p>
-          </li>
+  
+  <li>
+    <h3 style="display: inline; margin-right: 10px;">
+      &#x1F4D0;	Approximation Properties <span style="color:violet">of</span> ReLU Neural Networks &#x1F4D0;	
+    </h3>
+    <a href="#" onclick="toggleDetails('details1'); return false;" style="color: #20c997; font-size: 0.9em;">
+      [Click to Expand]
+    </a>
+    <div id="details1" style="display: none; margin-top: 10px; margin-left: 15px">
+      <p>
+        <strong>Papers:</strong> 
+        [<a href="#paper1" style="color: #1e90ff;">1</a>]
+      </p>
+      <p>
+        The <strong>universal approximation theorem</strong> asserts that neural networks with arbitrary real weights can theoretically approximate any sufficiently smooth function. 
+        However, practical neural networks operate with <strong>floating-point constrained weights</strong>, which introduce precision limitations.
+      </p>
+      <p>
+        In [<a href="#paper1" style="color: #1e90ff;">1</a>], I identified specific <strong>bit-precision conditions</strong> under which floating-point constrained ReLU networks achieve the same approximation polynomial rates as those with real weights.
+      </p>
+    </div>
+  </li>
+  
   </ul>
