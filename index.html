@@ -11,6 +11,7 @@
             name="google-site-verification"
             content="5WUwsOFl0WSjoow3NYEFhKioILYWyMZvgSdbp40ITwA"
         />
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </head>
 
     <body>
@@ -128,20 +129,36 @@
             }
 
             function loadHTML(file, elementId) {
-                fetch(file)
-                    .then((response) => response.text())
-                    .then((data) => {
-                        document.getElementById(elementId).innerHTML = data;
-                    })
-                    .catch((error) =>
-                        console.log("Error loading file:", error),
-                    );
-            }
+      fetch(file)
+        .then((response) => response.text())
+        .then((data) => {
+          const element = document.getElementById(elementId);
+          element.innerHTML = data;
+          // Trigger MathJax to typeset the new content
+          if (typeof MathJax !== 'undefined') {
+            MathJax.typesetPromise([element]).catch(function (err) {
+              console.error('MathJax typeset failed: ' + err.message);
+            });
+          }
+        })
+        .catch((error) => console.log('Error loading file:', error));
+    }
 
             document.addEventListener("DOMContentLoaded", function () {
                 loadHTML("papers.html", "papers");
                 loadHTML("research_topics.html", "research-topics");
             });
-        </script>
+
+            function toggleDetails(id, link) {
+      const details = document.getElementById(id);
+      if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+        link.textContent = "[Click to Minimize]";
+      } else {
+        details.style.display = "none";
+        link.textContent = "[Click to Expand]";
+      }
+    }
+        </script>  
     </body>
 </html>
