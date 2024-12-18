@@ -15,7 +15,7 @@
         ReLU neural networks, including architectures like ResNets and AlphaGo, exhibit important symmetries where different weights can implement the same input-output mapping.
       </p>
       <p>
-        Among these symmetries, <strong>rescaling</strong> ones are particularly significant because:
+        Among these symmetries are the so-called <strong>rescaling-symmetries</strong>, which are particularly significant because:
       </p>
         <ul>
           <li>they create <strong>continuous surfaces</strong> of local minima, unlike discrete permutation symmetries,</li>
@@ -33,10 +33,10 @@
         </p>
       </div>
       <p>
-        These symmetries affect weight scales without modifying the function. Consequently, theoretical guarantees on functions, such as theoretical bounds, should account for these symmetries to avoid being aritrarily pessimistic when weights are rescaled.
+        As these symmetries affect the size of the weights without modifying the function, theoretical guarantees should often account for these symmetries to avoid being arbitrarily pessimistic when weights are rescaled.
       </p>
       <p>
-        One approach to achieve invariant guarantees is to work with invariant representations of the weights. For the simple example above, the product \(vu\) serves as a basic invariant:
+         One approach to achieve invariant guarantees is to work with invariant representations of the weights. For the simple example above, the product \(vu\) serves as a basic invariant:
       </p>
       <div style="flex: 1; display: flex; justify-content: center; align-items: center; height: calc(10em + 5vh); max-width: 100%;">
         <img src="materials/images/curve_invariant_simple_ex.png" alt="Equivalent weights for a ReLU neuron" 
