@@ -1,4 +1,6 @@
-
-Inria-0362-157.jpg
-test.py
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
 .DS_Store
