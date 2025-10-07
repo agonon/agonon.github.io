@@ -1,0 +1,124 @@
+.paper-list { display: grid; gap: 16px; }
+
+.paper-card {
+  padding: 12px 0 10px;
+  border-bottom: 1px solid $line;
+}
+.paper-card:last-child { border-bottom: 0; }
+
+.paper-num { color: $muted; margin-right: .5rem; font-variant-numeric: tabular-nums; }
+
+.paper-meta { color: $muted; }
+.sep { margin: 0 8px; color: $muted; }
+
+.me { text-decoration: underline; text-underline-offset: 2px; }
+
+.btn-mini {
+  display: inline-block; padding: 6px 10px; border-radius: 10px;
+  border: 1px solid $line; background: #fff; text-decoration: none;
+  font-size: .84rem; line-height: 1; transition: transform .02s ease-out;
+}
+.btn-mini:hover { transform: translateY(-1px); }
+.btn-mini.ghost { background: #fff; }
+
+.hair { border: 0; border-top: 1px solid $line; margin: 18px 0; }
+.equal-note { margin-top: 8px; font-size: .9rem; }
+
+.label-phd {
+  display: inline-block;
+  padding: 2px 8px; margin-right: 8px;
+  border-radius: 999px; border: 1px solid #ffd6c7;
+  background: #fff1e8; font-size: .76rem; line-height: 1.4; letter-spacing: .02em;
+}
+
+
+.paper-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  /* keep actions on the same row on normal screens */
+  flex-wrap: nowrap;
+}
+
+/* allow the left side (number + title) to actually shrink */
+.paper-head .left {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;           
+}
+
+
+/* long titles can wrap without forcing the buttons down */
+.paper-title {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere; /* or word-break: break-word; */
+}
+
+
+/* keep buttons from breaking internally, and from shrinking */
+.paper-actions {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* On very small screens, it's OK to let buttons drop below */
+@media (max-width: 560px) {
+  .paper-head { flex-wrap: wrap; }
+  .paper-actions { width: 100%; padding-top: 6px; justify-content: flex-start; }
+}
+
+
+/* Collapsible sections */
+.interest {
+  margin: 12px 0;
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.interest > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.interest > summary::-webkit-details-marker { display: none; }
+
+.interest-title {
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+.readtime {
+  color: $muted;
+  font-size: .86rem;
+  white-space: nowrap;
+}
+
+/* Chevron */
+.interest > summary::after {
+  content: "▸";
+  margin-left: 8px;
+  transition: transform .15s ease;
+}
+.interest[open] > summary::after { transform: rotate(90deg); }
+
+/* Body */
+.interest-content {
+  padding: 12px 14px 16px;
+  border-top: 1px solid $line;
+}

@@ -1,0 +1,49 @@
+title: "Antoine Gonon"
+description: "Postdoc at EPFL, PhD from ENS Lyon. Research in deep learning at the interface of theory and practice."
+url: "https://agonon.github.io"
+baseurl: ""
+
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# GitHub Pages–safe plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Navigation
+nav:
+  - name: "Papers"
+    url: "/papers/"
+  - name: "Research interests"
+    url: "/interests/"
+
+# Social (fill what you use)
+social:
+  github: agonon
+  scholar: "https://scholar.google.fr/citations?user=MFWtaNwAAAAJ&hl=en"  
+  twitter: ""
+  mastodon: ""
+
+# External links used in content
+links:
+  epfl: "https://www.epfl.ch/en/"
+  enslyon: "https://www.ens-lyon.fr/en/"
+
+people:
+  boumal:     { name: "Nicolas Boumal", url: "https://www.nicolasboumal.net" }
+  gribonval:  { name: "Rémi Gribonval", url: "https://perso.ens-lyon.fr/remi.gribonval/" }
+  riccietti:  { name: "Elisa Riccietti", url: "https://perso.ens-lyon.fr/elisa.riccietti/" }
+  brisebarre: { name: "Nicolas Brisebarre", url: "https://perso.ens-lyon.fr/nicolas.brisebarre/" }
+
+exclude:
+  - _site
+  - README.md
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile.lock
+  - .DS_Store

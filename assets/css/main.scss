@@ -1,0 +1,193 @@
+---
+# SCSS front matter for Jekyll
+---
+
+// Palette: soft warm neutrals + subtle gray
+$bg: #fbfaf9;         // warm off-white
+$fg: #0b0b0c;         // near-black
+$muted: #6b6b6f;      // soft gray
+$line: #ececec;       // borders
+$accent: #ff7a59;     // warm coral accent (sparingly)
+
+// Type scale
+:root {
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+}
+
+// :root { --radius: 12px; --shadow: 0 6px 18px rgba(0,0,0,.04); }
+
+
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: $fg;
+  background: $bg;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: $fg; text-decoration: none; }
+
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+.site-header {
+  position: sticky; top: 0; backdrop-filter: saturate(180%) blur(12px);
+  background: rgba(251,250,249,.8); border-bottom: 1px solid $line;
+  .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
+  .brand { font-weight: 700; letter-spacing: .2px; }
+  .nav a { margin-left: 18px; padding: 6px 10px; border-radius: 10px; }
+  .nav a.active, .nav a:hover { background: white; box-shadow: var(--shadow); text-decoration: none; }
+}
+
+.site-main { padding: 36px 0 64px; }
+.site-footer { border-top: 1px solid $line; background: white; }
+.site-footer .wrap { padding: 24px 20px; color: $muted; }
+
+
+.section-title { margin: 28px 6px 14px; font-size: 1.25rem; color: $muted; font-weight: 600; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;
+}
+
+.card {
+  background: white; border: 1px solid $line; padding: 18px; border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  h3 { margin: 6px 0 6px; font-size: 1.05rem; }
+  p { margin: 0.2rem 0 0.5rem; }
+}
+
+.page, .post, .project {
+  background: white; border: 1px solid $line; padding: clamp(18px, 3vw, 28px);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+
+.list { padding-left: 18px; }
+.list li { margin: 6px 0; }
+
+.muted { color: $muted; }
+
+.center { text-align: center; padding: 60px 0; }
+
+.btn {
+  display: inline-block; padding: 10px 14px; border-radius: 12px;
+  background: $fg; color: white; font-weight: 600; letter-spacing: .2px;
+  border: 1px solid rgba(0,0,0,.85); box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  transition: transform .06s ease-in-out;
+}
+.btn:hover { transform: translateY(-1px); text-decoration: none; }
+.btn.ghost { background: white; color: $fg; border: 1px solid $line; }
+.btn.ghost:hover { box-shadow: var(--shadow); }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background: #f6f6f7; border: 1px solid $line; border-radius: 10px; padding: 0 4px;
+}
+pre { padding: 12px; overflow-x: auto; }
+
+.hero {
+  padding: 24px; background: white; border: 1px solid $line; border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  h1 { margin-top: 0; letter-spacing: -0.02em; font-size: clamp(28px, 4.2vw, 44px); }
+  .lede { font-size: 1.05rem; }
+  .cta-row { margin-top: 12px; }
+}
+
+
+.hero {
+  background: linear-gradient(180deg, #ffffff, #fff8f3 40%); // gentle warmth
+  border: 1px solid $line; border-radius: var(--radius); box-shadow: var(--shadow);
+}
+
+.lede { margin: 0 0 8px; font-size: 1.06rem; }
+
+a:hover { text-decoration: none; }
+
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn.ghost { background: #fff; border: 1px solid $line; }
+.btn.ghost:hover { background: #fff9f5; }
+
+
+/* Layout for avatar + text */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 144px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Keep avatar left and neat */
+.avatar {
+  width: 144px; height: 144px; border-radius: 24px; object-fit: cover;
+  border: 1px solid $line; box-shadow: var(--shadow); background: #fff;
+}
+
+/* Make links look obviously clickable in the intro + roles */
+/* underline only normal text links inside intro/roles */
+.roles a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.roles a:hover { color: $accent; }
+
+.roles {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 14px;
+
+  .role {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  
+  .dates {
+    color: $muted;
+    font-size: .85rem;
+    white-space: nowrap; /* keeps '2024 – present' on one line */
+  }
+}
+
+
+/* buttons never underlined */
+.btn, .btn:hover {
+  text-decoration: none !important;
+}
+
+.intro a:hover { color: $accent; }
+
+/* Roles list sits snugly under the intro line */
+.roles { list-style: none; padding: 0; margin: 8px 0 14px; }
+.roles li { margin: 4px 0; }
+
+
+/* Accessibility: focus styles for keyboard users */
+a:focus-visible, button:focus-visible { outline: 2px solid rgba(0,0,0,.25); outline-offset: 2px; }
+
+
+.minibib {
+  margin: 0 0 8px;
+  color: $muted;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+.minibib .refnum {
+  font-weight: 600;
+  margin-right: 6px;
+}
+.refcite {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+.refcite:hover { background: #fff9f5; } /* subtle */
+
+
+@import 'papers';

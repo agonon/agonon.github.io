@@ -1,0 +1,69 @@
+# === Papers (newest → oldest) ===
+- ref: rouchouse-2025-inv-pacbayes
+  title: "Non-Vacuous Generalization Bounds: Can Rescaling Invariances Help?"
+  authors: "Damien Rouchouse*, Antoine Gonon*, Rémi Gribonval, Benjamin Guedj"
+  year: 2025
+  venue: "arXiv"
+  links:
+    arxiv: "https://arxiv.org/abs/2509.26149"
+    pdf:   "https://arxiv.org/pdf/2509.26149"
+
+- ref: bardou-2025-maxkernels
+  title: "Symmetry-Aware Bayesian Optimization via Max Kernels"
+  authors: "Anthony Bardou, Antoine Gonon, Aryan Ahadinia, Patrick Thiran"
+  year: 2025
+  venue: "arXiv"
+  links:
+    arxiv: "https://arxiv.org/abs/2509.25051"
+    pdf:   "https://arxiv.org/pdf/2509.25051"
+
+- ref: gonon-2025-pathmetric-lip
+  title: "A Rescaling-Invariant Lipschitz Bound Based on Path-Metrics for Modern ReLU Network Parameterizations"
+  authors: "Antoine Gonon, Nicolas Brisebarre, Elisa Riccietti, Rémi Gribonval"
+  year: 2025
+  venue: "ICML 2025"
+  links:
+    arxiv: "https://arxiv.org/abs/2405.15006"
+    pdf:   "https://arxiv.org/pdf/2405.15006"
+    openreview: "https://openreview.net/pdf?id=T8VLY1KuOz"
+
+- ref: gonon-2025-ksmm
+  title: "Fast Inference with Kronecker-Sparse Matrices"
+  authors: "Antoine Gonon*, Léon Zheng*, Pascal Carrivain*, Quoc-Tung Le"
+  year: 2025
+  venue: "ICML 2025"
+  links:
+    arxiv: "https://arxiv.org/abs/2405.15013"
+    pdf:   "https://arxiv.org/pdf/2405.15013"
+    openreview: "https://openreview.net/pdf?id=RuMfpz8bTw"
+    code:  "https://github.com/PascalCarrivain/ksmm"
+
+- ref: gonon-2024-pathnorm-toolkit
+  title: "A Path-Norm Toolkit for Modern Networks: Consequences, Promises and Challenges"
+  authors: "Antoine Gonon, Nicolas Brisebarre, Elisa Riccietti, Rémi Gribonval"
+  year: 2024
+  venue: "ICLR 2024 (Spotlight)"
+  links:
+    arxiv: "https://arxiv.org/abs/2310.01225"
+    pdf:   "https://arxiv.org/pdf/2310.01225"
+    openreview: "https://openreview.net/pdf?id=hiHZVUIYik"
+    code:  "https://github.com/agonon/pathnorm_toolkit"
+
+- ref: gonon-2023-privacy-sparsity
+  title: "Can Sparsity Improve the Privacy of Neural Networks?"
+  authors: "Antoine Gonon*, Léon Zheng*, Clément Lalanne, Quoc-Tung Le, Guillaume Lauga, Can Pouliquen"
+  year: 2023
+  venue: "GRETSI 2023"
+  links:
+    arxiv: "https://hal.science/hal-04062317"
+    pdf:   "https://hal.science/hal-04062317v3/document"
+
+- ref: gonon-2023-approx-quant
+  title: "Approximation speed of quantized vs. unquantized ReLU neural networks and beyond"
+  authors: "Antoine Gonon, Nicolas Brisebarre, Elisa Riccietti, Rémi Gribonval"
+  year: 2023
+  venue: "IEEE Transactions on Information Theory"
+  links:
+    arxiv: "https://arxiv.org/abs/2205.11874"
+    pdf:   "https://arxiv.org/pdf/2205.11874"
+    # ieee: "https://ieeexplore.ieee.org/document/10027461" # kept but not rendered

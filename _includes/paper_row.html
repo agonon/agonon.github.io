@@ -1,0 +1,39 @@
+{%- assign paper = include.paper | default: paper -%}
+{%- assign pid = paper.ref | default: paper.title | slugify -%}
+
+{%- assign authors_html = paper.authors
+  | replace: "Antoine Gonon*", "<span class='me'>Antoine Gonon</span>*"
+  | replace: "Antoine Gonon",  "<span class='me'>Antoine Gonon</span>"
+-%}
+
+{%- assign venue_has_year = false -%}
+{%- if paper.venue and (paper.venue contains '20') -%}{% assign venue_has_year = true %}{% endif %}
+
+
+<article class="paper-card" id="p-{{ pid }}">
+  <div class="paper-head">
+    <div class="left">
+      {%- if include.idx -%}<span class="paper-num">[{{ include.idx }}]</span>{%- endif -%}
+      <h3 class="paper-title">
+        {%- if include.is_thesis -%}<span class="label-phd">PhD Manuscript</span> {% endif -%}
+        {{ paper.title }}
+      </h3>
+    </div>
+    <div class="paper-actions">
+      {%- if paper.links.pdf -%}
+        <a class="btn-mini" href="{{ paper.links.pdf }}" target="_blank" rel="noopener">PDF</a>
+      {%- elsif paper.links.arxiv -%}
+        <a class="btn-mini" href="{{ paper.links.arxiv }}" target="_blank" rel="noopener">PDF</a>
+      {%- endif -%}
+      {%- if paper.links.code -%}
+        <a class="btn-mini ghost" href="{{ paper.links.code }}" target="_blank" rel="noopener">Code</a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <p class="paper-meta">
+    {{ authors_html }}
+    {%- if paper.venue -%} <span class="sep">•</span> <span class="muted">{{ paper.venue }}</span>{%- endif -%}
+    {%- unless venue_has_year -%} <span class="sep">•</span> {{ paper.year }}{%- endunless -%}
+  </p>
+</article>

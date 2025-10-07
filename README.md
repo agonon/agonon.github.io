@@ -1,12 +1,8 @@
-To test locally:
+To test locally, run:
 
-cd path/to/folder
+```
+bundle install
+bundle exec jekyll serve
+```
 
-and then launch 
-
-python3 -m http.server
-
-and connect on a browser to
-
-http://localhost:8000
-
+and visit http://localhost:4000

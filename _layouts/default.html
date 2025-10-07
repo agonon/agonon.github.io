@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="alternate" type="application/atom+xml" href="{{ "/feed.xml" | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="{{ "/" | relative_url }}">{{ site.title }}</a>
+        <nav class="nav">
+          {% for item in site.nav %}
+            <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.name }}</a>
+          {% endfor %}
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main wrap">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap small">
+        <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}.
+          Last updated {{ site.time | date: "%B %Y" }}.
+          Built with Jekyll.</p>
+      </div>
+    </footer>
+
+    <script defer src="/assets/js/main.js"></script>
+
+<script>
+  // Enable $...$ inline and $$...$$ / \[...\] display
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']]
+    }
+  };
+
+  // Load MathJax if page has \(..\), \[..\], $$..$$, or $..$ on one line
+  const html = document.querySelector('main')?.innerHTML || '';
+  const hasMath =
+    /\\\(|\\\[|\$\$/.test(html) || /\$[^$\n]+\$/.test(html); // cautious $...$ detector
+  if (hasMath) {
+    const s = document.createElement('script');
+    s.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+    s.async = true;
+    document.head.appendChild(s);
+  }
+</script>
+
+  </body>
+</html>
