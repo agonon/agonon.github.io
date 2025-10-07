@@ -47,3 +47,7 @@ exclude:
   - package-lock.json
   - Gemfile.lock
   - .DS_Store
+  - vendor
+  - .jekyll-cache
+  - .jekyll-metadata
+  - .github
