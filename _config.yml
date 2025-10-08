@@ -20,6 +20,8 @@ nav:
     url: "/papers/"
   - name: "Research interests"
     url: "/interests/"
+  - name: "Contact"
+    url: "/contact/"
 
 # Social (fill what you use)
 social:
