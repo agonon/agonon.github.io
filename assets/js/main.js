@@ -58,14 +58,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-
-const btn = document.querySelector('.hamburger');
-const nav = document.querySelector('#nav');
-if (btn && nav) {
-  btn.addEventListener('click', () => {
-    const shown = nav.classList.toggle('show');
-    btn.setAttribute('aria-expanded', shown ? 'true' : 'false');
-  });
-}
-
