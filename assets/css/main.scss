@@ -9,6 +9,7 @@ $muted: #6b6b6f;      // soft gray
 $line: #ececec;       // borders
 $accent: #ff7a59;     // warm coral accent (sparingly)
 
+
 // Type scale
 :root {
   --radius: 16px;
@@ -45,8 +46,26 @@ a { color: $fg; text-decoration: none; }
 }
 
 .site-main { padding: 36px 0 64px; }
-.site-footer { border-top: 1px solid $line; background: white; }
+.site-footer { border-top: 1px solid $line; background: white;}
 .site-footer .wrap { padding: 24px 20px; color: $muted; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+/* Make the main content grow to fill the remaining height */
+.site-main {
+  flex: 1 0 auto;
+}
+
+/* Footer stays at the end, but only after content */
+.site-footer {
+  flex-shrink: 0;
+}
 
 
 .section-title { margin: 28px 6px 14px; font-size: 1.25rem; color: $muted; font-weight: 600; }
@@ -104,6 +123,7 @@ pre { padding: 12px; overflow-x: auto; }
   border: 1px solid $line; border-radius: var(--radius); box-shadow: var(--shadow);
 }
 
+
 .lede { margin: 0 0 8px; font-size: 1.06rem; }
 
 a:hover { text-decoration: none; }
@@ -120,6 +140,12 @@ a:hover { text-decoration: none; }
   gap: 18px;
   align-items: start;
 }
+
+/* Add breathing room between homepage block and footer */
+.hero-grid.intro {
+  margin-bottom: 2rem; /* tweak 4–8rem as you like */
+}
+
 
 /* Keep avatar left and neat */
 .avatar {
