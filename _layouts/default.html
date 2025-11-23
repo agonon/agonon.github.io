@@ -3,7 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% seo %}
+
+    {%- if page.seo_title -%}
+      <title>{{ page.seo_title }}</title>
+    {%- elsif page.title -%}
+      <title>{{ page.title }} | {{ site.title }}</title>
+    {%- else -%}
+      <title>{{ site.title }}</title>
+    {%- endif -%}
+
+    {%- seo title=false -%}
+
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="alternate" type="application/atom+xml" href="{{ "/feed.xml" | relative_url }}">
   </head>

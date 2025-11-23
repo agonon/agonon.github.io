@@ -1,0 +1,15 @@
+<section class="section">
+  <h2>Latest research</h2>
+  {%- assign papers = site.data.papers -%}
+  {%- assign limit = include.limit | default: 2 -%}
+
+  <div class="paper-list">
+    {%- for paper in papers limit: limit -%}
+      {%- include paper_row.html paper=paper -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="cta-row" style="margin-top:12px">
+    <a class="btn ghost" href="/papers/">Open full paper list →</a>
+  </div>
+</section>
