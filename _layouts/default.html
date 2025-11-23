@@ -6,8 +6,6 @@
 
     {%- if page.seo_title -%}
       <title>{{ page.seo_title }}</title>
-    {%- elsif page.title -%}
-      <title>{{ page.title }} | {{ site.title }}</title>
     {%- else -%}
       <title>{{ site.title }}</title>
     {%- endif -%}
