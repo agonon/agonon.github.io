@@ -2,13 +2,14 @@
 
 I like working on projects that involve:
 - **◈** respecting the **structure and geometry** of problems (e.g., invariances in theory/algorithms; structured sparsity for efficiency)  
-- **△** investigating **minimal setups** that still capture key large-scale effects  
-- **⇆** bringing **theory closer to practice**, with the aim of better understanding, informing, or improving the latter
+- **△** investigating **minimal setups** that still capture key large-scale effects
+
+Across these projects, a recurring goal is:
+- **⇆** bringing **theory closer to practice**, to better understand, inform, or improve empirical methods
 
 Below are small introductory reads to a few selected areas I’ve worked on.
 
 *Legend:* **◈** structure & geometry · **△** minimal setups · **⇆** theory ↔ practice  
-*(Ongoing projects in the △ direction; more soon.)*
 
 
 <div class="roles cta-row" style="margin: 8px 0 16px;">
@@ -17,8 +18,103 @@ Below are small introductory reads to a few selected areas I’ve worked on.
 </div>
 
 ---
+<details class="interest">
+  <summary>
+    <span class="interest-title">Revisiting explanatory narratives behind Muon, an optimizer used in nanoGPT speed benchmarks △ ⇆</span>
+    <span class="readtime" aria-label="Estimated reading time"></span>
+  </summary>
+  <div class="interest-content" markdown="1">
+**Related paper:**
+<div class="minibib">
+  <span class="refnum" id="SMUONR1">[1]</span>
+  Gonon, Muşat, Boumal. <em>Insights on Muon from Simple Quadratics</em>, arXiv 2026
+  · <a href="https://arxiv.org/pdf/2602.11948" target="_blank" rel="noopener">PDF</a>
+</div>
 
-<!-- Section 1 -->
+Classical intuition in optimization is primarily vector-based: given parameters $w \in \mathbb{R}^d$, one computes a gradient and takes a step approximately aligned with that direction.  
+However, modern neural networks like Transformers are structured around large weight matrices (e.g., projection matrices in attention and MLP blocks). When focusing on a single matrix parameter $W \in \mathbb{R}^{m \times n}$, it is natural to question whether purely vectorial update rules fully capture the relevant geometry.
+
+Muon builds on this observation.  
+Rather than stepping directly along the gradient matrix, it first applies a matrix transformation—an approximate polar factorization—and then updates using the resulting direction. Informally, this produces an update that reflects a spectral or orthogonality-aware geometry, as opposed to standard Euclidean descent.
+
+Interest in Muon stems from empirical results: it has contributed to state-of-the-art training speed benchmarks in settings such as nanoGPT, evaluated against strong, carefully tuned baselines.
+
+Existing attempts to explain Muon’s effectiveness often appeal—explicitly or implicitly—to three main ideas:
+
+1. **Improved local search direction.**  
+   If Muon simply produces a better-conditioned direction than the raw gradient, can its empirical gains be attributed primarily to improved per-step local progress?
+
+2. **Role of the polar approximation.**  
+   The polar factorization used in practice is computed approximately for efficiency reasons. 
+   If this approximation is merely an implementation constraint, should increasing its accuracy systematically improve performance?
+
+3. **Convex-analytic intuition.**  
+   In smooth, strongly convex settings, should Muon follow standard convergence patterns?  
+   Is it appropriate to reason about its behavior using tools from convex optimization, such as quadratic models or descent-based arguments?
+
+In <a href="#SMUONR1" class="refcite">[1]</a>, we examine these questions in the simplest setting where they can be analyzed precisely: strongly convex quadratic objectives. In this regime, all quantities admit explicit expressions, enabling controlled analysis.
+
+Our findings indicate that none of the above explanations is universally supported, even in this simplified context. While each perspective may hold under carefully constructed scenarios, empirical evidence on typical quadratic problems already departs from what these narratives would predict. 
+
+The purpose of the paper is not to propose an alternative explanation of Muon, but rather to delineate the limitations of commonly invoked interpretations. By identifying where these arguments fail in a controlled setting, we clarify the extent to which they can—or cannot—be considered generally sufficient.
+
+**Takeaway.** Even on strongly convex quadratic objectives, Muon exhibits behavior that departs from standard local and worst-case convex intuitions.
+  </div>
+</details>
+
+
+---
+
+<details class="interest">
+  <summary>
+    <span class="interest-title">Isolating a core retrieval inference primitive in Transformers with a minimalist setup △ ⇆ </span>
+    <span class="readtime" aria-label="Estimated reading time"></span>
+  </summary>
+  <div class="interest-content" markdown="1">
+**Related paper:**
+<div class="minibib">
+  <span id="SGMCR1" class="refnum">[1]</span>
+  Gonon, Cordonnier, Boumal <em>Gaussian Match-and-Copy: A Minimalist Benchmark for Studying Transformer Induction</em>, arXiv 2026
+  · <a href="https://arxiv.org/pdf/2602.07562" target="_blank" rel="noopener">PDF</a>
+</div>
+
+Many “in-context learning” benchmarks can be solved with a surprisingly simple primitive:
+
+> **Find a match in the context, then copy what came next.**
+
+Example:  
+“Granny Susie comes tomorrow. I love Granny ____.”  
+
+A natural continuation is “Susie”. A model that can scan the context, notice the earlier occurrence of “Granny”, and copy what came next would be able to predict “Susie” directly from the prompt, without needing to have memorized any particular association between “Granny” and “Susie” during training. This is a simple example of a **match-and-copy** procedure, a core retrieval primitive that can be used in many different ways to learn from the context at inference time.
+
+This matters because the real world is full of situations where the right continuation is not a fixed association. It’s a context-dependent retrieval: names, variables in a proof, a new nickname introduced three paragraphs above. 
+
+Match-and-copy has been observed to emerge naturally in Transformers trained on next-token prediction, even though nothing explicitly promotes it in the training objective. 
+Its emergence coincides with loss improvements, and it can be directly observed in the attention patterns of trained models. 
+It has been hypothesized to be a key mechanism behind in-context learning. 
+However, studying how and why it emerges in large language models remains challenging.
+
+One reason for this is that on natural language, retrieval and memorization may look identical from the outside.  
+If the model outputs “Susie”, did it:
+- retrieve it from the current prompt (a real algorithm happening at inference time), or
+- rely on a stored association (a learned bias that just happened to fit)?
+
+If you want to understand how Transformers develop match-and-copy circuits, you’d like a task where the model cannot cheat by memorization, but still faces the core difficulty: long-range search for a match, under a signal that attention is actually good at using.
+
+That’s the motivation for our benchmark in <a href="#SGMCR1" class="refcite">[1]</a>: build a tiny world where
+- there’s genuinely something to retrieve,
+- the “match” signal is clean and controllable,
+- the match can be arbitrarily far back,
+- and success means the model must implement an actual match-and-copy procedure.
+
+We use this as a microscope: an inexpensive setting where you can watch the mechanism appear, test which architectures can or can’t do it under the same budget, and start asking what optimization bias makes the model settle on “hard match selection” rather than some soft, blurry alternative.
+
+**Takeaway.** GMC offers a minimalist setting to study long-range, correlation-based match-and-copy behavior.
+  </div>
+</details>
+
+---
+
 <details class="interest">
   <summary>
     <span class="interest-title">Generalization guarantees that respect parameter symmetries ◈ ⇆</span>
@@ -68,7 +164,6 @@ However, the symmetry issue reappears in the PAC-Bayes **distance term** between
 
 ---
 
-<!-- Section 2 -->
 <details class="interest">
   <summary>
     <span class="interest-title">Symmetry-aware Bayesian optimization ◈ ⇆</span>
@@ -95,7 +190,6 @@ Instead, in <a href="#S2R1" class="refcite">[1]</a>, we reconsider an old idea: 
 ---
 
 
-<!-- Section 3 -->
 <details class="interest">
 <summary>
 <span class="interest-title">Invariant Lipschitz bounds and pruning ◈ ⇆</span>
@@ -129,8 +223,6 @@ This pruning rule is based on the path-lifting, an invariant representation of n
 
 ---
 
-
-<!-- Section 4 -->
 <details class="interest">
   <summary>
     <span class="interest-title">Structure for speed: Kronecker-sparse inference on GPU ◈ ⇆</span>

@@ -1,4 +1,24 @@
 # === Papers (newest to oldest) ===
+- ref: gonon-2026-muon-quadratics
+  title: "Insights on Muon from Simple Quadratics"
+  authors: "Antoine Gonon, Andreea-Alexandra Muşat, Nicolas Boumal"
+  year: 2026
+  venue: "arXiv"
+  links:
+    arxiv: "https://arxiv.org/abs/2602.11948"
+    pdf:   "https://arxiv.org/pdf/2602.11948"
+    code:  "https://github.com/agonon/muon-on-quadratics"
+
+
+- ref: gonon-2026-gaussian-match-and-copy
+  title: "Gaussian Match-and-Copy: A Minimalist Benchmark for Studying Transformer Induction"
+  authors: "Antoine Gonon, Alexandre Cordonnier, Nicolas Boumal"
+  year: 2026
+  venue: "arXiv"
+  links:
+    arxiv: "https://arxiv.org/abs/2602.07562"
+    pdf:   "https://arxiv.org/pdf/2602.07562"
+
 - ref: rouchouse-2025-inv-pacbayes
   title: "Non-Vacuous Generalization Bounds: Can Rescaling Invariances Help?"
   authors: "Damien Rouchouse*, Antoine Gonon*, Rémi Gribonval, Benjamin Guedj"
@@ -12,7 +32,7 @@
   title: "Symmetry-Aware Bayesian Optimization via Max Kernels"
   authors: "Anthony Bardou, Antoine Gonon, Aryan Ahadinia, Patrick Thiran"
   year: 2025
-  venue: "arXiv"
+  venue: "ICLR 2026"
   links:
     arxiv: "https://arxiv.org/abs/2509.25051"
     pdf:   "https://arxiv.org/pdf/2509.25051"
