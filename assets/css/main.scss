@@ -92,15 +92,6 @@ body {
 
 .center { text-align: center; padding: 60px 0; }
 
-.btn {
-  display: inline-block; padding: 10px 14px; border-radius: 12px;
-  background: $fg; color: white; font-weight: 600; letter-spacing: .2px;
-  border: 1px solid rgba(0,0,0,.85); box-shadow: 0 2px 6px rgba(0,0,0,.12);
-  transition: transform .06s ease-in-out;
-}
-.btn:hover { transform: translateY(-1px); text-decoration: none; }
-.btn.ghost { background: white; color: $fg; border: 1px solid $line; }
-.btn.ghost:hover { box-shadow: var(--shadow); }
 
 code, pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -126,11 +117,6 @@ pre { padding: 12px; overflow-x: auto; }
 .lede { margin: 0 0 8px; font-size: 1.06rem; }
 
 a:hover { text-decoration: none; }
-
-.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
-.btn.ghost { background: #fff; border: 1px solid $line; }
-.btn.ghost:hover { background: #fff9f5; }
-
 
 /* Layout for avatar + text */
 .hero-grid {
@@ -180,10 +166,6 @@ a:hover { text-decoration: none; }
 }
 
 
-/* buttons never underlined */
-.btn, .btn:hover {
-  text-decoration: none !important;
-}
 
 .intro a:hover { color: $accent; }
 
@@ -221,3 +203,46 @@ a:focus-visible, button:focus-visible { outline: 2px solid rgba(0,0,0,.25); outl
 
 html { scroll-behavior: smooth; }
 .section { scroll-margin-top: 64px; } /* if your header is sticky */
+
+
+.inline-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.inline-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:12px;
+  background:$fg;
+  color:#fff;
+  font-weight:600;
+  letter-spacing:.2px;
+  border:1px solid rgba(0,0,0,.85);
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  transition:transform .06s ease-in-out, box-shadow .06s ease-in-out, background .06s ease-in-out;
+  text-decoration:none !important; /* prevent underlines on buttons */
+}
+.btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
+
+.btn.ghost{
+  background:#fff;
+  color:$fg;
+  border:1px solid $line;
+}
+.btn.ghost:hover{ background:#fff9f5; }
+
+.btn.subtle {
+  background: transparent;
+  color: $fg;
+  border: 1px dashed $line;
+  box-shadow: none;
+}
+.btn.subtle:hover {
+  background: rgba(0,0,0,0.04);
+  transform: translateY(-1px);
+}
