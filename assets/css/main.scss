@@ -189,12 +189,35 @@ a:focus-visible, button:focus-visible { outline: 2px solid rgba(0,0,0,.25); outl
   margin-right: 6px;
 }
 .refcite {
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: 600;
   padding: 0 2px;
   border-radius: 4px;
 }
 .refcite:hover { background: #fff9f5; } /* subtle */
+
+.page a:not(.btn):not(.btn-mini),
+.dynamic-sections a:not(.btn):not(.btn-mini) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: .08em;
+}
+
+.page a:not(.btn):not(.btn-mini):hover,
+.dynamic-sections a:not(.btn):not(.btn-mini):hover {
+  color: $accent;
+  text-decoration-thickness: .12em;
+}
+
+.minibib a:not(.btn):not(.btn-mini) {
+  font-weight: 600;
+}
+
+.interest,
+.refnum {
+  scroll-margin-top: 72px;
+}
 
 
 @import 'papers';

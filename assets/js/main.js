@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById(id);
     if (el) {
       e.preventDefault();
+      const details = el.matches('details.interest') ? el : el.closest('details.interest');
+      if (details) details.open = true;
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       history.pushState(null, '', `#${id}`);
     }

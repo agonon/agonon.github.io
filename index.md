@@ -64,6 +64,9 @@ seo_title: "Antoine Gonon, mathematics of deep learning"
     var tpl = document.getElementById(tplId);
     if (!tpl) return;
     root.innerHTML = tpl.innerHTML; // replace content each time
+    if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+      window.MathJax.typesetPromise([root]);
+    }
     // optional: scroll into view if the hero is tall
     root.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
