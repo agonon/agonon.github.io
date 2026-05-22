@@ -1,8 +1,3 @@
+A first line of my work studies structures that training selects, beyond just fitting the data. Recent examples include diffusion language models learning support before frequencies, and match-and-copy mechanisms learned by Transformers.
 
-
-I like working on projects that involve:
-- **◈** respecting the **structure and geometry** of problems (e.g., invariances in theory/algorithms; structured sparsity for efficiency)  
-- **△** investigating **minimal setups** that still capture key large-scale effects (see <a class="inline-link" href="https://dimension-one.github.io/" target="_blank" rel="noopener">dimension one</a>).
-
-Across these projects, a recurring goal is:
-- **⇆** bringing **theory closer to practice**, to better understand, inform, or improve empirical methods
+Another line of my work studies structure in the parameterization and implementation of neural networks. This includes complexity measures, perturbation bounds, and pruning rules that respect rescaling symmetries, as well as GPU implementations of structured sparse layers.
