@@ -1,6 +1,6 @@
-A first line of my work studies structures that training selects, beyond just fitting the data. Recent examples include [diffusion language models learning support before frequencies](#diffusion-language-models), and [match-and-copy mechanisms learned by Transformers](#match-and-copy).
+A first line of my work studies structures that training selects, beyond just fitting the data. Recent examples include diffusion language models learning [support before frequencies](#diffusion-language-models), and [match-and-copy](#match-and-copy) mechanisms learned by Transformers.
 
-Another line of my work studies structure in the parameterization and implementation of neural networks. This includes [complexity measures, perturbation bounds, and pruning rules that respect rescaling symmetries](#symmetries-in-neural-networks), as well as [GPU implementations of structured sparse layers](#structured-matrices-on-gpu).
+Another line of my work studies structure in the parameterization and implementation of neural networks. This includes complexity measures, perturbation bounds, and pruning rules that respect [rescaling symmetries](#symmetries-in-neural-networks), as well as [GPU implementations](#structured-matrices-on-gpu) of matrix multiplication with structured sparse layers.
 
 Below are short informal notes on a few projects.
 
