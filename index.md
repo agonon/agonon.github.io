@@ -8,7 +8,7 @@ seo_title: "Antoine Gonon, mathematics of deep learning"
   <img class="avatar" src="/assets/img/me.jpg" alt="Antoine Gonon" width="144" height="144" loading="lazy" decoding="async">
 
   <div>
-    <p>I like studying mathematical and algorithmic questions in deep learning, especially around the structure and behavior of trained models.</p>
+    <p>I'm broadly interested in mathematical and algorithmic questions in deep learning, especially in the structure and behavior of trained models.</p>
     <ul class="roles">
       <li>
         <div class="role">
