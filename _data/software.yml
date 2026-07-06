@@ -1,0 +1,27 @@
+# === Research software / benchmarks (newest to oldest) ===
+- ref: gonon-2026-speedrun-dlm
+  label: "Code"
+  title: "speedrun-dlm: A Speedrun Benchmark for Diffusion Language Models"
+  authors: "Antoine Gonon, Adrian Müller, Léon Zheng, Zebang Shen, Clément Lalanne, Ya-Ping Hsieh, Anthony Bardou, Nicolas Boumal"
+  year: 2026
+  venue: "Benchmark"
+  links:
+    code: "https://github.com/agonon/speedrun-dlm"
+
+- ref: gonon-2025-ksmm-code
+  label: "Code"
+  title: "KSMM: Kronecker-Sparse Matrix Multiplication"
+  authors: "Antoine Gonon*, Léon Zheng*, Pascal Carrivain*, Quoc-Tung Le"
+  year: 2025
+  venue: "PyTorch package"
+  links:
+    code: "https://github.com/PascalCarrivain/ksmm"
+
+- ref: gonon-2024-pathnorm-pytorch
+  label: "Code"
+  title: "PathNorm for PyTorch"
+  authors: "Antoine Gonon"
+  year: 2024
+  venue: "PyTorch package"
+  links:
+    code: "https://github.com/agonon/pathnorm-pytorch"

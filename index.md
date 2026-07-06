@@ -37,7 +37,7 @@ seo_title: "Antoine Gonon, mathematics of deep learning"
     </ul>
     <div class="cta-row">
       <a class="btn" href="/interests/" id="btn-interests">What I work on</a>
-      <a class="btn ghost" href="/papers/" id="btn-papers" style="margin-left:8px;">Latest research</a>
+      <a class="btn ghost" href="/papers/" id="btn-papers" style="margin-left:8px;">Latest work</a>
       <a class="btn subtle" href="https://dimension-one.github.io/" target="_blank" rel="noopener" style="margin-left:8px;">
         dimension one
       </a>    

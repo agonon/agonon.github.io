@@ -88,6 +88,29 @@ body {
 .list { padding-left: 18px; }
 .list li { margin: 6px 0; }
 
+.page-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.page-toc a {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid $line;
+  border-radius: 10px;
+  background: #fff;
+  font-size: .92rem;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.page-toc a:hover {
+  background: #fff9f5;
+  color: $fg !important;
+}
+
 .muted { color: $muted; }
 
 .center { text-align: center; padding: 60px 0; }
