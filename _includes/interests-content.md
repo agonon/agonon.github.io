@@ -21,7 +21,7 @@ Below are short informal notes on a few projects.
 **Related paper:**
 <div class="minibib">
   <span class="refnum" id="SBF1">[1]</span>
-  Adrian Müller, Antoine Gonon, Zebang Shen, Ya-Ping Hsieh, Niao He. <em>Support Before Frequency in Discrete Diffusion</em>, arXiv 2026
+  Adrian Müller, Antoine Gonon, Zebang Shen, Ya-Ping Hsieh, Niao He. <em>Support Before Frequency in Discrete Diffusion</em>, NeurIPS 2026
   · <a href="https://arxiv.org/pdf/2605.13999" target="_blank" rel="noopener">PDF</a>
 </div>
 

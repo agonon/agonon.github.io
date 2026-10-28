@@ -12,15 +12,24 @@ seo_title: "Antoine Gonon, mathematics of deep learning"
     <ul class="roles">
       <li>
         <div class="role">
-            <span>
-              Postdoc @
-              <a href="{{ site.links.epfl }}" target="_blank" rel="noopener">EPFL</a>
-              (with
-              <a href="{{ site.people.boumal.url }}" target="_blank" rel="noopener">{{ site.people.boumal.name }}</a>)
-            </span>
-            <span class="dates">Dec 2024 – present</span>
-          </div>
-        </li>
+          <span>
+            Researcher @
+            <a href="{{ site.links.apple_mlr }}" target="_blank" rel="noopener">Apple ML Research</a>, Paris
+          </span>
+          <span class="dates">Oct 2026 – present</span>
+        </div>
+      </li>
+      <li>
+        <div class="role">
+          <span>
+            Postdoc @
+            <a href="{{ site.links.epfl }}" target="_blank" rel="noopener">EPFL</a>
+            (with
+            <a href="{{ site.people.boumal.url }}" target="_blank" rel="noopener">{{ site.people.boumal.name }}</a>)
+          </span>
+          <span class="dates">Dec 2024 – Oct 2026</span>
+        </div>
+      </li>
       <li>
         <div class="role">
           <span>
